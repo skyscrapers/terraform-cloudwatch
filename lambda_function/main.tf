@@ -1,4 +1,4 @@
-// Setup Cloudwatch alarms for all Lambda function aliases (environments)
+// Setup Cloudwatch alarms for linked Lambda function
 // Send alerts to given SNS topics.
 
 // Lambda: Invocation Errors
@@ -14,6 +14,7 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_invocation_errors" {
   period              = "${var.lambda_invocation_error_period}"
 
   alarm_actions = ["${var.sns_topic_arn}"]
+  ok_actions    = ["${var.sns_topic_arn}"]
 
   dimensions {
     FunctionName = "${var.lambda_function}"

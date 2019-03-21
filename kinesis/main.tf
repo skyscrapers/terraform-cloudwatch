@@ -11,9 +11,8 @@ resource "aws_cloudwatch_metric_alarm" "_kinesis_iterator_age" {
   period              = "${var.kinesis_iterator_age_error_period}"
   alarm_description   = " Kinesis High Iterator Age: ${var.kinesis_stream_name}"
 
-  alarm_actions             = ["${var.sns_topic_arn}"]
-  ok_actions                = ["${var.sns_topic_arn}"]
-  insufficient_data_actions = ["${var.sns_topic_arn}"]
+  alarm_actions = ["${var.sns_topic_arn}"]
+  ok_actions    = ["${var.sns_topic_arn}"]
 
   dimensions {
     StreamName = "${var.kinesis_stream_name}"
@@ -33,9 +32,8 @@ resource "aws_cloudwatch_metric_alarm" "_kinesis_write_exceeded" {
   period              = "${var.kinesis_write_throughput_exceeded_period}"
   alarm_description   = " Kinesis Write Throughput Exceeded: ${var.kinesis_stream_name}"
 
-  alarm_actions             = ["${var.sns_topic_arn}"]
-  ok_actions                = ["${var.sns_topic_arn}"]
-  insufficient_data_actions = ["${var.sns_topic_arn}"]
+  alarm_actions = ["${var.sns_topic_arn}"]
+  ok_actions    = ["${var.sns_topic_arn}"]
 
   dimensions {
     StreamName = "${var.kinesis_stream_name}"
