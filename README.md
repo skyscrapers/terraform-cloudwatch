@@ -2,11 +2,52 @@
 
 Terraform module to setup cloudwatch alerts and push them to SNS. This repository contains the following modules:
 
-* `kinesis`: Creates alerts for a kinesis stream. This is used in the `skyscrapers/terraform-kinesis` module.
+* `api-gateway`: Creates general alerts for the api-gateway.
 * `dynamodb`: Creates the alerts needed for a dynamodb table.
+* `kinesis`: Creates alerts for a kinesis stream. This is used in the `skyscrapers/terraform-kinesis` module.
 * `lambda_function`: Creates the alerts for lambda functions.
 
+## api-gateway
+
+Creates general alerts for the api-gateway
+
+The following resources are created:
+
+* Cloudwatch alerts for the api-gateway that was passed as variable
+
+### Available variables
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| 5XXError\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
+| 5XXError\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"1"` | no |
+| 5XXError\_threshold | The value against which the specified statistic is compared. | string | `"5"` | no |
+| api\_gateway | Name of the API Gateway to monitor | string | n/a | yes |
+| integrationlatency\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
+| integrationlatency\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"2"` | no |
+| integrationlatency\_threshold | The value against which the specified statistic is compared. | string | `"5000"` | no |
+| latency\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
+| latency\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"2"` | no |
+| latency\_threshold | The value against which the specified statistic is compared. | string | `"5000"` | no |
+| sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
+
+## dynamodb
+
+Creates the alerts needed for a dynamodb table.
+
+### Available variables
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| dynamodb\_table\_name | Name of the dynamodb table to monitor | string | n/a | yes |
+| dynamodb\_throttle\_evaluation\_periods | The period in seconds over which the specified stat is applied. | string | `"1"` | no |
+| dynamodb\_throttle\_period | The number of periods over which data is compared to the specified threshold. | string | `"60"` | no |
+| dynamodb\_throttle\_threshold | The value against which the specified statistic is compared. | string | `"0"` | no |
+| sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
+
+
 ## kinesis
+
 Creates alerts for a kinesis stream. This is used in the `skyscrapers/terraform-kinesis` module.
 
 The following resources are created:
@@ -24,20 +65,6 @@ The following resources are created:
 | kinesis\_write\_throughput\_exceeded\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"6"` | no |
 | kinesis\_write\_throughput\_exceeded\_period | The period in seconds over which the specified stat is applied. | string | `"300"` | no |
 | kinesis\_write\_throughput\_exceeded\_threshold | The value against which the specified statistic is compared. | string | `"10"` | no |
-| sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
-
-## dynamodb
-
-Creates the alerts needed for a dynamodb table.
-
-### Available variables
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| dynamodb\_table\_name | Name of the dynamodb table to monitor | string | n/a | yes |
-| dynamodb\_throttle\_evaluation\_periods | The period in seconds over which the specified stat is applied. | string | `"1"` | no |
-| dynamodb\_throttle\_period | The number of periods over which data is compared to the specified threshold. | string | `"60"` | no |
-| dynamodb\_throttle\_threshold | The value against which the specified statistic is compared. | string | `"0"` | no |
 | sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
 
 ## lambda_function
