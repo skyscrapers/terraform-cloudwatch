@@ -20,7 +20,7 @@ variable "5XXError_evaluation_periods" {
   description = "The number of periods over which data is compared to the specified threshold."
 }
 
-variable "5XXError_error_period" {
+variable "5XXError_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
@@ -37,7 +37,7 @@ variable "latency_evaluation_periods" {
   description = "The number of periods over which data is compared to the specified threshold."
 }
 
-variable "latency_error_period" {
+variable "latency_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
@@ -54,7 +54,7 @@ variable "integrationlatency_evaluation_periods" {
   description = "The number of periods over which data is compared to the specified threshold."
 }
 
-variable "integrationlatency_error_period" {
+variable "integrationlatency_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
