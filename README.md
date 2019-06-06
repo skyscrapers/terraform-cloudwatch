@@ -7,13 +7,13 @@ Terraform module to setup cloudwatch alerts and push them to SNS. This repositor
 * `kinesis`: Creates alerts for a kinesis stream. This is used in the `skyscrapers/terraform-kinesis` module.
 * `lambda_function`: Creates the alerts for lambda functions.
 
-## api-gateway
+## API-Gateway
 
-Creates general alerts for the api-gateway
+Creates general alerts for the API-Gateway
 
 The following resources are created:
 
-* Cloudwatch alerts for the api-gateway that was passed as variable
+* Cloudwatch alerts for the API-Gateway that was passed as variable
 
 ### Available variables
 
@@ -31,9 +31,9 @@ The following resources are created:
 | latency\_threshold | The value against which the specified statistic is compared. | string | `"5000"` | no |
 | sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
 
-## dynamodb
+## DynamoDB
 
-Creates the alerts needed for a dynamodb table.
+Creates the alerts needed for a DynamoDB table.
 
 ### Available variables
 
@@ -46,9 +46,23 @@ Creates the alerts needed for a dynamodb table.
 | sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
 
 
-## kinesis
+## ElasticSearch
 
-Creates alerts for a kinesis stream. This is used in the `skyscrapers/terraform-kinesis` module.
+Creates the alerts needed for a ElasticSearch domain.
+
+### Available variables
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| cpu\_utilization\_threshold | The maximum percentage of CPU utilization | string | `"95"` | no |
+| elasticsearch\_cluster\_name | Name of the ElasticSearch cluster to monitor | string | n/a | yes |
+| free\_storage\_space\_threshold | The minimum amount of available storage space in MegaByte. | string | `"512"` | no |
+| jvm\_memory\_pressure\_threshold | The maximum percentage of the Java heap used for all data nodes in the cluster | string | `"95"` | no |
+| sns\_topic\_arn | ARN of the SNS topic you want the alerts to be sent to | string | n/a | yes |
+
+## Kinesis
+
+Creates alerts for a Kinesis stream. This is used in the `skyscrapers/terraform-kinesis` module.
 
 The following resources are created:
 
@@ -69,7 +83,7 @@ The following resources are created:
 
 ## lambda_function
 
- Creates the alerts for lambda functions.
+ Creates the alerts for Lambda functions.
 
 ### Available variables
 
