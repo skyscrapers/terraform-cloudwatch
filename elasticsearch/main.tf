@@ -1,7 +1,6 @@
 locals {
   thresholds = {
     FreeStorageSpaceThreshold  = "${max(var.free_storage_space_threshold, 0)}"
-    MinimumAvailableNodes      = "${max(var.min_available_nodes, 0)}"
     CPUUtilizationThreshold    = "${min(max(var.cpu_utilization_threshold, 0), 100)}"
     JVMMemoryPressureThreshold = "${min(max(var.jvm_memory_pressure_threshold, 0), 100)}"
   }
@@ -23,6 +22,7 @@ resource "aws_cloudwatch_metric_alarm" "cluster_status_is_red" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }
 
@@ -42,6 +42,7 @@ resource "aws_cloudwatch_metric_alarm" "cluster_status_is_yellow" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }
 
@@ -61,6 +62,7 @@ resource "aws_cloudwatch_metric_alarm" "free_storage_space_too_low" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }
 
@@ -80,6 +82,7 @@ resource "aws_cloudwatch_metric_alarm" "cluster_index_writes_blocked" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }
 
@@ -99,6 +102,7 @@ resource "aws_cloudwatch_metric_alarm" "automated_snapshot_failure" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }
 
@@ -117,6 +121,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_too_high" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }
 
@@ -135,5 +140,6 @@ resource "aws_cloudwatch_metric_alarm" "jvm_memory_pressure_too_high" {
 
   dimensions {
     DomainName = "${var.elasticsearch_cluster_name}"
+    ClientId   = "${var.aws_clientid}"
   }
 }

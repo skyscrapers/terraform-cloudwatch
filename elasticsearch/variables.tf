@@ -8,6 +8,11 @@ variable "elasticsearch_cluster_name" {
   type        = "string"
 }
 
+variable "aws_clientid" {
+  description = "AWS ID of the account where the elasticsearch domain is running"
+  type        = "string"
+}
+
 variable "free_storage_space_threshold" {
   description = "The minimum amount of available storage space in MegaByte."
   type        = "string"
