@@ -8,7 +8,7 @@ locals {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cluster_status_is_red" {
-  alarm_name          = "ElasticSearch-ClusterStatusIsRed_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-ClusterStatusIsRed-${var.elasticsearch_cluster_name}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "ClusterStatus.red"
@@ -27,7 +27,7 @@ resource "aws_cloudwatch_metric_alarm" "cluster_status_is_red" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cluster_status_is_yellow" {
-  alarm_name          = "ElasticSearch-ClusterStatusIsYellow_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-ClusterStatusIsYellow-${var.elasticsearch_cluster_name}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "ClusterStatus.yellow"
@@ -46,7 +46,7 @@ resource "aws_cloudwatch_metric_alarm" "cluster_status_is_yellow" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "free_storage_space_too_low" {
-  alarm_name          = "ElasticSearch-FreeStorageSpaceTooLow_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-FreeStorageSpaceTooLow-${var.elasticsearch_cluster_name}"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "FreeStorageSpace"
@@ -65,7 +65,7 @@ resource "aws_cloudwatch_metric_alarm" "free_storage_space_too_low" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cluster_index_writes_blocked" {
-  alarm_name          = "ElasticSearch-ClusterIndexWritesBlocked_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-ClusterIndexWritesBlocked-${var.elasticsearch_cluster_name}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "ClusterIndexWritesBlocked"
@@ -84,7 +84,7 @@ resource "aws_cloudwatch_metric_alarm" "cluster_index_writes_blocked" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "automated_snapshot_failure" {
-  alarm_name          = "ElasticSearch-AutomatedSnapshotFailure_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-AutomatedSnapshotFailure-${var.elasticsearch_cluster_name}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "AutomatedSnapshotFailure"
@@ -103,7 +103,7 @@ resource "aws_cloudwatch_metric_alarm" "automated_snapshot_failure" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_utilization_too_high" {
-  alarm_name          = "ElasticSearch-CPUUtilizationTooHigh_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-CPUUtilizationTooHigh-${var.elasticsearch_cluster_name}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "3"
   metric_name         = "CPUUtilization"
@@ -121,7 +121,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_too_high" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "jvm_memory_pressure_too_high" {
-  alarm_name          = "ElasticSearch-JVMMemoryPressure_${var.elasticsearch_cluster_name}"
+  alarm_name          = "ElasticSearch-JVMMemoryPressure-${var.elasticsearch_cluster_name}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "1"
   metric_name         = "JVMMemoryPressure"
