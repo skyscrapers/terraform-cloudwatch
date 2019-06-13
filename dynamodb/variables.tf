@@ -4,7 +4,7 @@ variable "sns_topic_arn" {
 
 // Dynamodb table name
 variable "dynamodb_table_name" {
-  type        = "string"
+  type        = string
   description = "Name of the dynamodb table to monitor"
 }
 
@@ -23,3 +23,4 @@ variable "dynamodb_throttle_evaluation_periods" {
   default     = 1
   description = "The period in seconds over which the specified stat is applied."
 }
+

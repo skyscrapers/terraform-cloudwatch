@@ -1,5 +1,7 @@
 # terraform-cloudwatch
 
+N.B. Releases >= 2.0.0 been upgraded to use Terraform 0.12.?
+
 Terraform module to setup cloudwatch alerts and push them to SNS. This repository contains the following modules:
 
 * `api-gateway`: Creates general alerts for the api-gateway.
@@ -9,7 +11,9 @@ Terraform module to setup cloudwatch alerts and push them to SNS. This repositor
 
 ## API-Gateway
 
-Creates general alerts for the API-Gateway
+Creates general alerts for the API-Gateway.
+
+N.B. Releases >= 2.0.0 the `5XXError...` variables are now `fiveXXError...`.
 
 The following resources are created:
 
@@ -19,9 +23,9 @@ The following resources are created:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| 5XXError\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
-| 5XXError\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"1"` | no |
-| 5XXError\_threshold | The value against which the specified statistic is compared. | string | `"5"` | no |
+| fiveXXError\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
+| fiveXXError\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"1"` | no |
+| fiveXXError\_threshold | The value against which the specified statistic is compared. | string | `"5"` | no |
 | api\_gateway | Name of the API Gateway to monitor | string | n/a | yes |
 | integrationlatency\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
 | integrationlatency\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"2"` | no |

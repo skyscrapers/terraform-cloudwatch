@@ -4,23 +4,23 @@ variable "sns_topic_arn" {
 
 // API Gateway name
 variable "api_gateway" {
-  type        = "string"
+  type        = string
   description = "Name of the API Gateway to monitor"
 }
 
 // API Gateway 5XXError Alarm Settings
 
-variable "5XXError_threshold" {
+variable "fiveXXError_threshold" {
   default     = "5"
   description = "The value against which the specified statistic is compared."
 }
 
-variable "5XXError_evaluation_periods" {
+variable "fiveXXError_evaluation_periods" {
   default     = "1"
   description = "The number of periods over which data is compared to the specified threshold."
 }
 
-variable "5XXError_period" {
+variable "fiveXXError_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
@@ -58,3 +58,4 @@ variable "integrationlatency_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
+

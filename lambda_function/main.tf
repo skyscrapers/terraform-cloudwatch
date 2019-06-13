@@ -9,15 +9,15 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_invocation_errors" {
   metric_name         = "Errors"
   statistic           = "Sum"
   comparison_operator = "GreaterThanThreshold"
-  threshold           = "${var.lambda_invocation_error_threshold}"
-  evaluation_periods  = "${var.lambda_invocation_error_evaluation_periods}"
-  period              = "${var.lambda_invocation_error_period}"
+  threshold           = var.lambda_invocation_error_threshold
+  evaluation_periods  = var.lambda_invocation_error_evaluation_periods
+  period              = var.lambda_invocation_error_period
 
-  alarm_actions = ["${var.sns_topic_arn}"]
-  ok_actions    = ["${var.sns_topic_arn}"]
+  alarm_actions = [var.sns_topic_arn]
+  ok_actions    = [var.sns_topic_arn]
 
-  dimensions {
-    FunctionName = "${var.lambda_function}"
+  dimensions = {
+    FunctionName = var.lambda_function
   }
 }
 
@@ -29,15 +29,15 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_throttles" {
   metric_name         = "Throttles"
   statistic           = "Sum"
   comparison_operator = "GreaterThanThreshold"
-  threshold           = "${var.lambda_throttle_error_threshold}"
-  evaluation_periods  = "${var.lambda_throttle_error_evaluation_periods}"
-  period              = "${var.lambda_throttle_error_period}"
+  threshold           = var.lambda_throttle_error_threshold
+  evaluation_periods  = var.lambda_throttle_error_evaluation_periods
+  period              = var.lambda_throttle_error_period
 
-  alarm_actions = ["${var.sns_topic_arn}"]
-  ok_actions    = ["${var.sns_topic_arn}"]
+  alarm_actions = [var.sns_topic_arn]
+  ok_actions    = [var.sns_topic_arn]
 
-  dimensions {
-    FunctionName = "${var.lambda_function}"
+  dimensions = {
+    FunctionName = var.lambda_function
   }
 }
 
@@ -49,14 +49,15 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_iterator_age" {
   metric_name         = "IteratorAge"
   statistic           = "Maximum"
   comparison_operator = "GreaterThanThreshold"
-  threshold           = "${var.lambda_iterator_age_error_threshold}"
-  evaluation_periods  = "${var.lambda_iterator_age_error_evaluation_periods}"
-  period              = "${var.lambda_iterator_age_error_period}"
+  threshold           = var.lambda_iterator_age_error_threshold
+  evaluation_periods  = var.lambda_iterator_age_error_evaluation_periods
+  period              = var.lambda_iterator_age_error_period
 
-  alarm_actions = ["${var.sns_topic_arn}"]
-  ok_actions    = ["${var.sns_topic_arn}"]
+  alarm_actions = [var.sns_topic_arn]
+  ok_actions    = [var.sns_topic_arn]
 
-  dimensions {
-    FunctionName = "${var.lambda_function}"
+  dimensions = {
+    FunctionName = var.lambda_function
   }
 }
+

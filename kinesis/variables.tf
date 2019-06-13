@@ -5,7 +5,7 @@ variable "sns_topic_arn" {
 // Kinesis stream name
 variable "kinesis_stream_name" {
   description = "Name of the kinesis stream to monitor"
-  type        = "string"
+  type        = string
 }
 
 // Kinesis Iterator Age Alarm Settings
@@ -39,3 +39,4 @@ variable "kinesis_write_throughput_exceeded_period" {
   description = "The period in seconds over which the specified stat is applied."
   default     = "300"
 }
+
