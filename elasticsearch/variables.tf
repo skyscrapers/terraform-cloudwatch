@@ -15,19 +15,18 @@ variable "aws_clientid" {
 
 variable "free_storage_space_threshold" {
   description = "The minimum amount of available storage space in MegaByte."
-  type        = string
+  type        = number
   default     = 512
 }
 
 variable "cpu_utilization_threshold" {
   description = "The maximum percentage of CPU utilization"
-  type        = string
+  type        = number
   default     = 95
 }
 
 variable "jvm_memory_pressure_threshold" {
   description = "The maximum percentage of the Java heap used for all data nodes in the cluster"
-  type        = string
+  type        = number
   default     = 95
 }
-

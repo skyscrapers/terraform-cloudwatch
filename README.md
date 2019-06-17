@@ -1,6 +1,6 @@
 # terraform-cloudwatch
 
-N.B. Releases >= 2.0.0 been upgraded to use Terraform 0.12.?
+N.B. Releases >= 2.0.0 been upgraded to use Terraform 0.12.n.
 
 Terraform module to setup cloudwatch alerts and push them to SNS. This repository contains the following modules:
 
@@ -13,7 +13,7 @@ Terraform module to setup cloudwatch alerts and push them to SNS. This repositor
 
 Creates general alerts for the API-Gateway.
 
-N.B. Releases >= 2.0.0 the `5XXError...` variables are now `fiveXXError...`.
+N.B. Releases >= 2.0.0 the `5XXError...` variables are now `fiveXXError...` as variables cannot start with a number.
 
 The following resources are created:
 
