@@ -6,14 +6,15 @@ resource "aws_cloudwatch_metric_alarm" "dynamo_table_throttles" {
   metric_name         = "ThrottledRequests"
   statistic           = "Sum"
   comparison_operator = "GreaterThanThreshold"
-  threshold           = "${var.dynamodb_throttle_threshold}"
-  period              = "${var.dynamodb_throttle_period}"
-  evaluation_periods  = "${var.dynamodb_throttle_evaluation_periods}"
+  threshold           = var.dynamodb_throttle_threshold
+  period              = var.dynamodb_throttle_period
+  evaluation_periods  = var.dynamodb_throttle_evaluation_periods
 
-  alarm_actions = ["${var.sns_topic_arn}"]
-  ok_actions    = ["${var.sns_topic_arn}"]
+  alarm_actions = [var.sns_topic_arn]
+  ok_actions    = [var.sns_topic_arn]
 
   dimensions = {
-    TableName = "${var.dynamodb_table_name}"
+    TableName = var.dynamodb_table_name
   }
 }
+

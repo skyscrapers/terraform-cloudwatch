@@ -4,7 +4,7 @@ variable "sns_topic_arn" {
 
 // Lambda Function name
 variable "lambda_function" {
-  type        = "string"
+  type        = string
   description = "Name of the lambda function to monitor"
 }
 
@@ -56,3 +56,4 @@ variable "lambda_iterator_age_error_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
+

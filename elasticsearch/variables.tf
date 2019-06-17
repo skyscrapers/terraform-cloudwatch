@@ -5,28 +5,28 @@ variable "sns_topic_arn" {
 // ElasticSearch cluster name
 variable "elasticsearch_cluster_name" {
   description = "Name of the ElasticSearch cluster to monitor"
-  type        = "string"
+  type        = string
 }
 
 variable "aws_clientid" {
   description = "AWS ID of the account where the elasticsearch domain is running"
-  type        = "string"
+  type        = string
 }
 
 variable "free_storage_space_threshold" {
   description = "The minimum amount of available storage space in MegaByte."
-  type        = "string"
+  type        = number
   default     = 512
 }
 
 variable "cpu_utilization_threshold" {
   description = "The maximum percentage of CPU utilization"
-  type        = "string"
+  type        = number
   default     = 95
 }
 
 variable "jvm_memory_pressure_threshold" {
   description = "The maximum percentage of the Java heap used for all data nodes in the cluster"
-  type        = "string"
+  type        = number
   default     = 95
 }
