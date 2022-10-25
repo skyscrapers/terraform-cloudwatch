@@ -12,6 +12,7 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_invocation_errors" {
   threshold           = var.lambda_invocation_error_threshold
   evaluation_periods  = var.lambda_invocation_error_evaluation_periods
   period              = var.lambda_invocation_error_period
+  treat_missing_data  = var.lambda_invocation_error_treat_missing_data
 
   alarm_actions = [var.sns_topic_arn]
   ok_actions    = [var.sns_topic_arn]
@@ -60,4 +61,3 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_iterator_age" {
     FunctionName = var.lambda_function
   }
 }
-
