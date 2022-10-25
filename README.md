@@ -97,6 +97,7 @@ The following resources are created:
 | lambda\_invocation\_error\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"1"` | no |
 | lambda\_invocation\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
 | lambda\_invocation\_error\_threshold | The value against which the specified statistic is compared. | string | `"5"` | no |
+| lambda\_invocation\_error\_treat\_missing\_data | Sets how this alarm is to handle missing data points. | string | `"missing"` | no |
 | lambda\_iterator\_age\_error\_evaluation\_periods | The number of periods over which data is compared to the specified threshold. | string | `"1"` | no |
 | lambda\_iterator\_age\_error\_period | The period in seconds over which the specified stat is applied. | string | `"60"` | no |
 | lambda\_iterator\_age\_error\_threshold | The value against which the specified statistic is compared. | string | `"1000000"` | no |

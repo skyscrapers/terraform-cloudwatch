@@ -25,6 +25,12 @@ variable "lambda_invocation_error_period" {
   description = "The period in seconds over which the specified stat is applied."
 }
 
+variable "lambda_invocation_error_treat_missing_data" {
+  type        = string
+  default     = "missing"
+  description = "Sets how this alarm is to handle missing data points"
+}
+
 // Lambda Throttling Alarm Settings
 variable "lambda_throttle_error_threshold" {
   default     = "0"
@@ -56,4 +62,3 @@ variable "lambda_iterator_age_error_period" {
   default     = "60"
   description = "The period in seconds over which the specified stat is applied."
 }
-
