@@ -14,8 +14,9 @@ resource "aws_cloudwatch_metric_alarm" "streamalert_lambda_invocation_errors" {
   period              = var.lambda_invocation_error_period
   treat_missing_data  = var.lambda_invocation_error_treat_missing_data
 
-  alarm_actions = [var.sns_topic_arn]
-  ok_actions    = [var.sns_topic_arn]
+  alarm_actions             = [var.sns_topic_arn]
+  ok_actions                = [var.sns_topic_arn]
+  insufficient_data_actions = [var.sns_topic_arn]
 
   dimensions = {
     FunctionName = var.lambda_function
